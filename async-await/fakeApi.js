@@ -36,7 +36,7 @@ function getPosts(options) {
  *
  * @param {{verbose: boolean }} options - Key-pair values that determine functionallity of the function
  * @param {boolean} options.verbose - Determines whether to log at the beginning and end of the function call
- * @returns {Promise<{downtime: number, posts: Array}>} - A promise that contains a mock JWT
+ * @returns {Promise<{downtime: number, kty: string, n: string, e: string, alg: string, use: string}>} - A promise that contains a mock JWT
  */
 function getJWT(options) {
   const { verbose } = options || {};
