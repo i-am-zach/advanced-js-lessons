@@ -28,10 +28,10 @@ function getPosts(options) {
 function getJWT(options) {
   const { verbose } = options || {};
   const duration = Math.random() * 5000;
-  if (verbose) console.log("Getting JavaScript Web Token");
+  if (verbose) console.log("Getting JavaScript Web Token...");
   return new Promise((resolve) => {
     setTimeout(() => {
-      if (verbose) console.log("Successfully recieved JavaScript Web Token");
+      if (verbose) console.log("Successfully recieved JavaScript Web Token!");
       resolve({
         downtime: duration,
         kty: "RSA",
@@ -44,14 +44,15 @@ function getJWT(options) {
   });
 }
 
-function checkServers({ verbose }) {
+function checkServers(options) {
+  const { verbose } = options || {};
   const duration = Math.random() * 5000;
   if (verbose) console.log("Checking servers...");
   return new Promise((resolve) => {
     setTimeout(() => {
       const servers = 12;
       const down = Math.ceil(Math.random() * 5);
-      console.log("Checked servers!");
+      if (verbose) console.log("Checked servers!");
       resolve({
         total: servers,
         up: servers - down,
