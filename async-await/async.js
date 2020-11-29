@@ -19,4 +19,4 @@ function allAtOnce() {
 // oneAfterAnother();
 
 // Uncomment to run the code asyncronously
-allAtOnce();
+// allAtOnce();

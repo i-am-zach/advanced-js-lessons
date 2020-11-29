@@ -1,18 +1,11 @@
+/**
+ * Simulates an API call that recieves posts from a database. This function takes between 0 and 5000ms to complete
+ *
+ * @param {{verbose: boolean }} options - Key-pair values that determine functionallity of the function
+ * @param {boolean} options.verbose - Determines whether to log at the beginning and end of the function call
+ * @returns {Promise<{downtime: number, posts: Array}>} - A promise that contains a mock api get method
+ */
 function getPosts(options) {
-  /* Simulates an API call that recieves posts from a database 
-     This function takes between 0 and 5000ms to complete
-
-    PARAMS
-    ------
-    options: object
-        verbose: boolean
-            Determines whether to print reminders when the function begins and ends 
-            
-    RETURNS
-    -------
-    promise<object>
-        Returns a promise that contains a mock post json result */
-
   const { verbose } = options || {};
   if (verbose) console.log("Getting posts from database");
   // Take anywhere from 0 to 5000 milliseconds to get posts
@@ -38,21 +31,14 @@ function getPosts(options) {
   });
 }
 
+/**
+ * Simulates an API call that generates a JWT (JavaScript Web Token). This function takes between 0 and 5000ms to complete
+ *
+ * @param {{verbose: boolean }} options - Key-pair values that determine functionallity of the function
+ * @param {boolean} options.verbose - Determines whether to log at the beginning and end of the function call
+ * @returns {Promise<{downtime: number, posts: Array}>} - A promise that contains a mock JWT
+ */
 function getJWT(options) {
-  /* Simulates an API call that recieves a JWT from a webserver 
-    This function takes between 0 and 5000ms to complete
-
-    PARAMS
-    ------
-    options: object
-        verbose: boolean
-            Determines whether to print reminders when the function begins and ends 
-            
-    RETURNS
-    -------
-    promise<object>
-        Returns a promise that contains a mock JWT object */
-
   const { verbose } = options || {};
   const duration = Math.random() * 5000;
   if (verbose) console.log("Getting JavaScript Web Token...");
@@ -71,21 +57,14 @@ function getJWT(options) {
   });
 }
 
+/**
+ * Simulates checking on 12 servers that are running on an organized system
+ *
+ * @param {{verbose: boolean }} options - Key-pair values that determine functionallity of the function
+ * @param {boolean} options.verbose - Determines whether to log at the beginning and end of the function call
+ * @returns {Promise<{downtime: number, serverStatus: {total: number, up: number, down: number }}>} - A promise that contains a mock system update
+ */
 function checkServers(options) {
-  /* Simulates checking how many servers are up and down on a system
-    This function takes between 0 and 5000ms to complete
-
-    PARAMS
-    ------
-    options: object
-        verbose: boolean
-            Determines whether to print reminders when the function begins and ends 
-            
-    RETURNS
-    -------
-    promise<object>
-        Returns a promise when contains an object with mock information on how many servers are up and down */
-        
   const { verbose } = options || {};
   const duration = Math.random() * 5000;
   if (verbose) console.log("Checking servers...");
@@ -95,9 +74,12 @@ function checkServers(options) {
       const down = Math.ceil(Math.random() * 5);
       if (verbose) console.log("Checked servers!");
       resolve({
-        total: servers,
-        up: servers - down,
-        down: down,
+        downtime: duration,
+        serverStatus: {
+          total: servers,
+          up: servers - down,
+          down: down,
+        },
       });
     }, duration);
   });
