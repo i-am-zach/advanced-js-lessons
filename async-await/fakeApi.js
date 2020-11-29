@@ -1,8 +1,21 @@
-const { resolve } = require("bluebird");
-
 function getPosts(options) {
+  /* Simulates an API call that recieves posts from a database 
+     This function takes between 0 and 5000ms to complete
+
+    PARAMS
+    ------
+    options: object
+        verbose: boolean
+            Determines whether to print reminders when the function begins and ends 
+            
+    RETURNS
+    -------
+    promise<object>
+        Returns a promise that contains a mock post json result */
+
   const { verbose } = options || {};
   if (verbose) console.log("Getting posts from database");
+  // Take anywhere from 0 to 5000 milliseconds to get posts
   const duration = Math.random() * 5000;
   const data = {
     downtime: duration,
@@ -26,6 +39,20 @@ function getPosts(options) {
 }
 
 function getJWT(options) {
+  /* Simulates an API call that recieves a JWT from a webserver 
+    This function takes between 0 and 5000ms to complete
+
+    PARAMS
+    ------
+    options: object
+        verbose: boolean
+            Determines whether to print reminders when the function begins and ends 
+            
+    RETURNS
+    -------
+    promise<object>
+        Returns a promise that contains a mock JWT object */
+
   const { verbose } = options || {};
   const duration = Math.random() * 5000;
   if (verbose) console.log("Getting JavaScript Web Token...");
@@ -45,6 +72,20 @@ function getJWT(options) {
 }
 
 function checkServers(options) {
+  /* Simulates checking how many servers are up and down on a system
+    This function takes between 0 and 5000ms to complete
+
+    PARAMS
+    ------
+    options: object
+        verbose: boolean
+            Determines whether to print reminders when the function begins and ends 
+            
+    RETURNS
+    -------
+    promise<object>
+        Returns a promise when contains an object with mock information on how many servers are up and down */
+        
   const { verbose } = options || {};
   const duration = Math.random() * 5000;
   if (verbose) console.log("Checking servers...");

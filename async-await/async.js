@@ -10,13 +10,13 @@ async function oneAfterAnother() {
 }
 
 function allAtOnce() {
-    getPosts().then(posts => console.log(posts));
-    getJWT().then(jwt => console.log(jwt));
-    checkServers().then(serverStatus => console.log(serverStatus));
+    getPosts({ verbose: true }).then(posts => console.log(posts));
+    getJWT({ verbose: true }).then(jwt => console.log(jwt));
+    checkServers({ verbose: true }).then(serverStatus => console.log(serverStatus));
 }
 
 // Uncomment to run the code syncronously
 // oneAfterAnother();
 
 // Uncomment to run the code asyncronously
-// allAtOnce();
+allAtOnce();
